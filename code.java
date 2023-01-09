@@ -1,7 +1,18 @@
 
 import java.util.Scanner;
 import java.util.*;
-
+class Job{
+	int start_time;
+	int end_time;
+	int earnings;
+	public Job(int start_time, int end_time, int earnings) {
+		super();
+		this.start_time = start_time;
+		this.end_time = end_time;
+		this.earnings = earnings;
+	}
+	
+}
 public class Factory {
 
 	  public static void main(String [] args)
@@ -9,35 +20,29 @@ public class Factory {
 	    Scanner sc = new Scanner(System.in);
 	    System.out.println("Enter how many jobs");
 	    int r = sc.nextInt();
+	    Job[] jb=new Job[r];
+	    for(int i=0;i<r;i++) {
+	    	System.out.println("enter val");
+	    	jb[i]=new Job(sc.nextInt(),sc.nextInt(),sc.nextInt());
 	    
-	    System.out.println("Enter how cols");
-	    int c = sc.nextInt();
-	    
-	    
-	    int[][] arr = new int[r][c];
-	    for(int i=0;i<arr.length;i++)
-	    {
-	      for(int j=0;j<arr[i].length;j++)
-	      {
-	        arr[i][j] = sc.nextInt();
-	      }
 	    }
-	    int result[] = calculate(arr);
+	  
+	    int result[] = calculate(jb);
 	    for(int i: result)
 	    {
 	      System.out.println(i);
 	    }
 	  }
-	  public static int[] calculate(int[][] arr)
+	  public static int[] calculate(Job[] arr)
 	  {
-	    int max =arr[0][2];
+	    int max =arr[0].earnings;
 	    int sum =0;
 	    int output[]=new int[2];
 	    for(int i=0;i<arr.length;i++)
 	    {
-	      sum+=arr[i][2];
-	      if(max<arr[i][2]) {
-	    	  max=arr[i][2];
+	      sum+=arr[i].earnings;
+	      if(max<arr[i].earnings) {
+	    	  max=arr[i].earnings;
 	      }
 	     
 	    }
